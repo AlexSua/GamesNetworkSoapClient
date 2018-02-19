@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://servicios.modelo/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicios.modelo/">
+
+<xs:element name="BuscarProductosTituloAutor" type="tns:BuscarProductosTituloAutor"/>
+
+<xs:element name="BuscarProductosTituloAutorResponse" type="tns:BuscarProductosTituloAutorResponse"/>
+
+<xs:element name="ComprobarUsuario" type="tns:ComprobarUsuario"/>
+
+<xs:element name="ComprobarUsuarioResponse" type="tns:ComprobarUsuarioResponse"/>
+
+<xs:element name="ConversionMoneda" type="tns:ConversionMoneda"/>
+
+<xs:element name="ConversionMonedaResponse" type="tns:ConversionMonedaResponse"/>
+
+<xs:element name="ExcepcionConversion" type="tns:ExcepcionConversion"/>
+
+<xs:element name="ObtenerCatalogoProductos" type="tns:ObtenerCatalogoProductos"/>
+
+<xs:element name="ObtenerCatalogoProductosResponse" type="tns:ObtenerCatalogoProductosResponse"/>
+
+<xs:element name="ObtenerDetallesProducto" type="tns:ObtenerDetallesProducto"/>
+
+<xs:element name="ObtenerDetallesProductoResponse" type="tns:ObtenerDetallesProductoResponse"/>
+
+<xs:element name="ValidarUsuario" type="tns:ValidarUsuario"/>
+
+<xs:element name="ValidarUsuarioResponse" type="tns:ValidarUsuarioResponse"/>
+
+<xs:element name="enviarCorreo" type="tns:enviarCorreo"/>
+
+<xs:element name="enviarCorreoResponse" type="tns:enviarCorreoResponse"/>
+
+<xs:element name="isAdministrador" type="tns:isAdministrador"/>
+
+<xs:element name="isAdministradorResponse" type="tns:isAdministradorResponse"/>
+
+<xs:element name="isEstadar" type="tns:isEstadar"/>
+
+<xs:element name="isEstadarResponse" type="tns:isEstadarResponse"/>
+
+<xs:element name="isVIP" type="tns:isVIP"/>
+
+<xs:element name="isVIPResponse" type="tns:isVIPResponse"/>
+
+<xs:element name="monedaConversion" type="tns:monedaConversion"/>
+
+<xs:element name="monedaConversionResponse" type="tns:monedaConversionResponse"/>
+
+<xs:complexType name="enviarCorreo">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="listaCDs" type="tns:cdvo" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+<xs:element name="autor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cdvo" final="extension restriction">
+<xs:complexContent>
+<xs:extension base="tns:itemVO">
+<xs:sequence>
+<xs:element name="ano" type="xs:string" minOccurs="0"/>
+<xs:element name="anoString" type="xs:string" minOccurs="0"/>
+<xs:element name="autor" type="xs:string" minOccurs="0"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="itemVO" abstract="true">
+<xs:sequence>
+<xs:element name="comentarios" type="tns:comentarioVO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fotoURL" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="precio" type="xs:float"/>
+<xs:element name="stock" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="comentarioVO" final="extension restriction">
+<xs:sequence>
+<xs:element name="item" type="xs:int"/>
+<xs:element name="texto" type="xs:string" minOccurs="0"/>
+<xs:element name="usuario" type="xs:string" minOccurs="0"/>
+<xs:element name="valoracion" type="xs:unsignedShort"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="enviarCorreoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ObtenerDetallesProducto">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ObtenerDetallesProductoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cdvo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ComprobarUsuario">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ComprobarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isEstadar">
+<xs:sequence>
+<xs:element name="Usuario" type="tns:usuarioVO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usuarioVO">
+<xs:sequence>
+<xs:element name="activo" type="xs:boolean"/>
+<xs:element name="apellidos" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isEstadarResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:estandarVO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="estandarVO" final="extension restriction">
+<xs:complexContent>
+<xs:extension base="tns:clienteVO">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="clienteVO" abstract="true">
+<xs:complexContent>
+<xs:extension base="tns:usuarioVO">
+<xs:sequence>
+<xs:element name="carrito" type="tns:carritoVO" minOccurs="0"/>
+<xs:element name="direccion" type="xs:string" minOccurs="0"/>
+<xs:element name="moneda" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="carritoVO" final="extension restriction">
+<xs:sequence>
+<xs:element name="detalles">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="key" minOccurs="0" type="xs:int"/>
+<xs:element name="value" minOccurs="0" type="tns:detalleCompraVO"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="fecha" type="tns:date" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="total" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="detalleCompraVO" final="extension restriction">
+<xs:sequence>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="carrito" type="xs:int"/>
+<xs:element name="item" type="tns:itemVO" minOccurs="0"/>
+<xs:element name="precioU" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="date">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="isAdministrador">
+<xs:sequence>
+<xs:element name="usuario" type="tns:usuarioVO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isAdministradorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:administradorVO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="administradorVO" final="extension restriction">
+<xs:complexContent>
+<xs:extension base="tns:usuarioVO">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="isVIP">
+<xs:sequence>
+<xs:element name="Usuario" type="tns:usuarioVO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isVIPResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:vipvo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="vipvo" final="extension restriction">
+<xs:complexContent>
+<xs:extension base="tns:clienteVO">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ConversionMoneda">
+<xs:sequence>
+<xs:element name="ListaValores" type="xs:float" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="inputMoneda" type="xs:string" minOccurs="0"/>
+<xs:element name="outputMoneda" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ConversionMonedaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:float" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ExcepcionConversion">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="monedaConversion">
+<xs:sequence>
+<xs:element name="listaCDs" type="tns:cdvo" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="moneda" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="monedaConversionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cdvo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ValidarUsuario">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ValidarUsuarioResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usuarioVO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ObtenerCatalogoProductos">
+<xs:sequence>
+<xs:element name="inicio" type="xs:int"/>
+<xs:element name="fin" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ObtenerCatalogoProductosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cdvo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BuscarProductosTituloAutor">
+<xs:sequence>
+<xs:element name="Titulo" type="xs:string" minOccurs="0"/>
+<xs:element name="Autor" type="xs:string" minOccurs="0"/>
+<xs:element name="precio" type="xs:float" minOccurs="0"/>
+<xs:element name="ano" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BuscarProductosTituloAutorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:cdvo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

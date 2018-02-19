@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0 svn-revision#3528ea595bd29309f69172d231bbce272d21035c. --><xs:schema xmlns:tns="http://Server.GamesNetworkSoap.ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Server.GamesNetworkSoap.ws/">
+
+<xs:element name="ConnectionException" type="tns:ConnectionException"/>
+
+<xs:element name="CreateUser" type="tns:CreateUser"/>
+
+<xs:element name="CreateUserResponse" type="tns:CreateUserResponse"/>
+
+<xs:element name="DeleteUser" type="tns:DeleteUser"/>
+
+<xs:element name="DeleteUserResponse" type="tns:DeleteUserResponse"/>
+
+<xs:element name="GetUser" type="tns:GetUser"/>
+
+<xs:element name="GetUserResponse" type="tns:GetUserResponse"/>
+
+<xs:element name="GetUsers" type="tns:GetUsers"/>
+
+<xs:element name="GetUsersResponse" type="tns:GetUsersResponse"/>
+
+<xs:element name="Loggin" type="tns:Loggin"/>
+
+<xs:element name="LogginResponse" type="tns:LogginResponse"/>
+
+<xs:element name="Logout" type="tns:Logout"/>
+
+<xs:element name="LogoutResponse" type="tns:LogoutResponse"/>
+
+<xs:element name="UnauthorizedException" nillable="true" type="xs:anyType"/>
+
+<xs:element name="UpdateUser" type="tns:UpdateUser"/>
+
+<xs:element name="UpdateUserResponse" type="tns:UpdateUserResponse"/>
+
+<xs:element name="add" type="tns:add"/>
+
+<xs:element name="addResponse" type="tns:addResponse"/>
+
+<xs:element name="isAuthenticated" type="tns:isAuthenticated"/>
+
+<xs:element name="isAuthenticatedResponse" type="tns:isAuthenticatedResponse"/>
+
+<xs:complexType name="add">
+<xs:sequence>
+<xs:element name="arg0" type="xs:double"/>
+<xs:element name="arg1" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Logout">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LogoutResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="InternalErrorException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="UnauthorizedException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Loggin">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LogginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ConnectionException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isAuthenticated">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isAuthenticatedResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="UpdateUser">
+<xs:sequence>
+<xs:element name="arg0" type="tns:usermodel" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="usermodel">
+<xs:sequence>
+<xs:element name="edad" type="xs:int" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="localization" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="UpdateUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CreateUser">
+<xs:sequence>
+<xs:element name="arg0" type="tns:usermodel" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CreateUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DeleteUser">
+<xs:sequence>
+<xs:element name="arg0" type="tns:usermodel" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DeleteUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetUser">
+<xs:sequence>
+<xs:element name="arg0" type="tns:usermodel" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetUserResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usermodel" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetUsers">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetUsersResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:usermodel" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

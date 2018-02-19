@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/ServiciosTienda/ServiciosTienda?WSDL" uri="xml-resources/web-service-references/ServiciosTienda_1/wsdl/localhost_8080/ServiciosTienda/ServiciosTienda.wsdl"/>
+    <system systemId="http://localhost:8080/ServiciosTienda/ServiciosTienda?xsd=1" uri="xml-resources/web-service-references/ServiciosTienda_1/wsdl/localhost_8080/ServiciosTienda/ServiciosTienda.xsd_1.xsd"/>
+    <system systemId="http://new-host:8080/ServiciosTienda/ServiciosTienda?wsdl" uri="xml-resources/web-service-references/ServiciosTienda/wsdl/new-host_8080/ServiciosTienda/ServiciosTienda.wsdl"/>
+    <system systemId="http://localhost:9080/verCatalogoService/verCatalogoPort?WSDL" uri="xml-resources/web-service-references/verCatalogoPort/wsdl/localhost_9080/verCatalogoService/verCatalogoPort.wsdl"/>
+    <system systemId="http://new-host:8080/ServiciosTienda/ServiciosTienda?xsd=1" uri="xml-resources/web-service-references/verCatalogoPort/wsdl/new-host_8080/ServiciosTienda/ServiciosTienda.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/gamesnetworksoap?wsdl" uri="xml-resources/web-service-references/gamesnetworksoap/wsdl/localhost_8080/gamesnetworksoap.wsdl"/>
+    <system systemId="http://localhost:8080/gamesnetworksoap?xsd=1" uri="xml-resources/web-service-references/gamesnetworksoap/wsdl/localhost_8080/gamesnetworksoap.xsd_1.xsd"/>
+</catalog>

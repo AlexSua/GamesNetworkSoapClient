@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://servicios.modelo/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://j2ee.netbeans.org/wsdl/serviciosCatalogo/DescriptorBPEL/serviciosCatalogo" xmlns:tns1="http://j2ee.netbeans.org/wsdl/serviciosCatalogo/DescriptorBPEL/verCatalogo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="verCatalogo" targetNamespace="http://j2ee.netbeans.org/wsdl/serviciosCatalogo/DescriptorBPEL/verCatalogo">
+  <types>
+    <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/serviciosCatalogo/DescriptorBPEL/verCatalogo">
+            <xsd:import namespace="http://servicios.modelo/" schemaLocation="http://new-host:8080/ServiciosTienda/ServiciosTienda?xsd=1"/>
+        </xsd:schema>
+  </types>
+  <message name="serviciosCatalogoOperationResponse">
+    <part name="resultado" type="ns:monedaConversionResponse">
+    </part>
+    <part name="usuarioRegistrado" type="xsd:boolean">
+    </part>
+    <part name="correoEnviado" type="xsd:boolean">
+    </part>
+  </message>
+  <message name="serviciosCatalogoOperationRequest">
+    <part name="email" type="xsd:string">
+    </part>
+    <part name="contraseña" type="xsd:string">
+    </part>
+    <part name="titulo" type="xsd:string">
+    </part>
+    <part name="autor" type="xsd:string">
+    </part>
+    <part name="moneda" type="xsd:string">
+    </part>
+    <part name="envioCorreo" type="xsd:boolean">
+    </part>
+  </message>
+  <portType name="serviciosCatalogoPortType">
+    <operation name="serviciosCatalogoOperation">
+      <input message="tns1:serviciosCatalogoOperationRequest" name="input1">
+    </input>
+      <output message="tns1:serviciosCatalogoOperationResponse" name="output1">
+    </output>
+    </operation>
+  </portType>
+  <binding name="verCatalogoBinding" type="tns1:serviciosCatalogoPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="serviciosCatalogoOperation">
+      <soap:operation/>
+      <input name="input1">
+        <soap:body namespace="http://j2ee.netbeans.org/wsdl/serviciosCatalogo/DescriptorBPEL/verCatalogo" use="literal"/>
+      </input>
+      <output name="output1">
+        <soap:body namespace="http://j2ee.netbeans.org/wsdl/serviciosCatalogo/DescriptorBPEL/verCatalogo" use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="verCatalogoService">
+    <port binding="tns1:verCatalogoBinding" name="verCatalogoPort">
+      <soap:address location="http://new-host:9080/verCatalogoService/verCatalogoPort"/>
+    </port>
+  </service>
+    <plnk:partnerLinkType name="verCatalogo">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="serviciosCatalogoPortTypeRole" portType="tns1:serviciosCatalogoPortType"/>
+    </plnk:partnerLinkType>
+</definitions>
